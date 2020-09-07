@@ -20,61 +20,28 @@ struct ContentView: View {
     var body: some View {
         return NavigationView {
                 VStack {
+                    /** Quote of the day. */
                     Text(quote)
                         .font(.custom("Helvetica Neue Regular", size: 18))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .multilineTextAlignment(.leading)
                         .padding(25)
                     
+                    /** Container for all butterfly images*/
                     HStack {
-                        VStack {
-                            //daniel-klein-uNNPbsCTksk-u...
-                            Image(uiImage: #imageLiteral(resourceName: "Butterfly1"))
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 120, height: 120)
-                                .clipShape(RoundedRectangle(cornerRadius: 15))
-                            .frame(width: 120, height: 120)
-                            
-                            //Danaus Plexippus
-                            Text("Danaus Plexippus")
-                                .frame(width:120)
-                                .font(.custom("Helvetica Neue Bold", size: 18)).multilineTextAlignment(.center)
-                        }
-                        .padding(.trailing, 20.0)
-                        VStack {
-                            //anne-lambeck-5VC4thmwMms-u...
-                            Image(uiImage: #imageLiteral(resourceName: " Butterfly2"))
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 120, height: 120)
-                                .clipShape(RoundedRectangle(cornerRadius: 15))
-                            .frame(width: 120, height: 120)
-                            
-                            //Morpho Pelides
-                            Text("Morpho Pelides")
-                                .frame(width:120)
-                                .font(.custom("Helvetica Neue Bold", size: 18)).multilineTextAlignment(.center)
-                        }
-                        .padding(.leading, 20.0)
-                    }
-                    .padding(.bottom)
-                    
-                    VStack {
-                        //fleur-SE2zTdS1MNo-unsplash 1
-                        Image(uiImage: #imageLiteral(resourceName: "Butterfly3"))
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 120, height: 120)
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
-                        .frame(width: 120, height: 120)
+                        //Danaus Plexippus
+                        ButterflyContainer(imageName: "Butterfly1", butterflyName: "Danaus Plexippus")
+                            .padding(.trailing, 20.0)
                         
-                        //Delias Eucharia
-                        Text("Delias Eucharia")
-                            .frame(width:120)
-                            .font(.custom("Helvetica Neue Bold", size: 18))
-                            .multilineTextAlignment(.center)
+                        //Morpho Pelides
+                        ButterflyContainer(imageName: "Butterfly2", butterflyName: "Morpho Pelides")
+                            .padding(.leading, 20.0)
                     }
+                    .padding(.bottom, 20.0)
+                    
+                    // Delias Eucharia
+                    ButterflyContainer(imageName: "Butterfly3", butterflyName: "Delias Eucharia")
+                        .padding(.leading, 20.0)
                     Spacer()
                     Spacer()
                 }
